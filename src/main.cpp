@@ -127,9 +127,10 @@ void loop()
 
             if(raceTime.nextMarble()) //start the next marble
             {
+               delay(1500); //wait a little bit
+
               display.changeMarbleNumber(raceTime.getCurrentMarble()); //update Display
               m_states = ProgramStates::startMarble;    //wait for the marble to start
-              delay(1500); //wait a little bit
             }
             else //this was the last marble
             {
@@ -144,9 +145,10 @@ void loop()
               {
                   button.setMaxVal(1);
               }
-
+              delay(1500); //wait a little bit
               display.showHighScore(raceTime.getRanking(),button.getEncoderValue()); //show Highscore
               m_states = ProgramStates::Ranking; //change state to ranking
+              
             }     
 
           }
