@@ -2,7 +2,7 @@
 A simple arduino project to measure time in marble races. 
 Compiled with Platform.io and used with the [quercetti marlbe run](https://www.quercettistore.com/en/toys/marble-run/6315-big-marbledrome)
 
-![img](Images/IMG_20200421_140640.jpg )
+![img](Images/IMG_20200421_140640.jpg width="200" )
 
 
 ## Components
