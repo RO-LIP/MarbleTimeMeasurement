@@ -1,4 +1,5 @@
 # MarbleTimeMeasurement
+[![Build Status](https://travis-ci.org/RO-LIP/MarbleTimeMeasurement.svg?branch=master)](https://travis-ci.org/RO-LIP/MarbleTimeMeasurement) \
 A simple arduino project to measure time in marble races. 
 Compiled with Platform.io and used with the [quercetti marlbe run](https://www.quercettistore.com/en/toys/marble-run/6315-big-marbledrome)
 <p align="center">
