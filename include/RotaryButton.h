@@ -8,12 +8,12 @@
 
 
 
-uint8_t PIN_CLK{5}; 
-uint8_t DT_PIN{4}; 
+uint8_t PIN_CLK{5};
+uint8_t DT_PIN{4};
 uint8_t SW_PIN{3};
 
 //Set pins and step, min max value for the encoder
-RotaryEncoderAdvanced<uint8_t> encoder(PIN_CLK, DT_PIN, SW_PIN, 1, 1, 20);  
+RotaryEncoderAdvanced<uint8_t> encoder(PIN_CLK, DT_PIN, SW_PIN, 1, 1, 20);
 
 //for debouncing
 bool toggleButten = false;
@@ -22,7 +22,7 @@ uint8_t lastEncoderValue = -1;
 
 class RotaryButton
 {
-    //ISR for encoder   
+    //ISR for encoder
     static void encoderISR()
     {
         encoder.readAB();
@@ -31,7 +31,7 @@ class RotaryButton
             newEncoderValue = true;
             lastEncoderValue = encoder.getValue();
         }
- 
+
     }
 
     //ISR for button
@@ -56,7 +56,7 @@ public:
     {
     }
 
-     void init() //initialize 
+     void init() //initialize
     {
         Timer1.initialize();                                                       //optionally timer's period can be set here in usec, default 1 sec. this breaks analogWrite() for pins 9 & 10
 
@@ -67,7 +67,7 @@ public:
     }
 
     //return true, if the button was pushed
-    bool isButtonPushed() 
+    bool isButtonPushed()
     {
         return encoder.getPushButton() == true;
     }
@@ -101,7 +101,7 @@ public:
     }
 
     //get the current max value for the encoder [1 .. maxVal]
-    const uint8_t getMaxValue()
+    uint8_t getMaxValue()
     {
         return encoder.getMaxValue();
     }

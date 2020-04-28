@@ -24,7 +24,7 @@ public:
     }
 
     //get measured time
-    const uint32_t getTime()
+    uint32_t getTime()
     {
         return runtime;
     }

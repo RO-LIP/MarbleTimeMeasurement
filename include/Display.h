@@ -1,4 +1,4 @@
-#include <Wire.h> 
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <estd/array.h>
 #include <MarbleData.h>
@@ -8,17 +8,17 @@ class Display
 {
  LiquidCrystal_I2C lcd = LiquidCrystal_I2C(0x27,20,4);
 
-public:    
+public:
     Display()
         {
 
         }
     void init()
     {
-        lcd.init();                      // initialize the lcd 
+        lcd.init();                      // initialize the lcd
         lcd.backlight();
     }
-    
+
     void startScreen()
     {
         lcd.clear();
@@ -69,7 +69,7 @@ public:
         lcd.setCursor(0,3);
         lcd.print("Best: ");
     }
-    
+
     void changeMarbleNumber(const uint8_t marbleNumber)
     {
         lcd.setCursor(14,1);
@@ -133,7 +133,7 @@ public:
         String s = "";
         if(seconds >= 10)
         {
-            String s = "0";
+            s = "0";
         }
         s += String(seconds)+ ":";
 

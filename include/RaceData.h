@@ -29,13 +29,13 @@ public:
     }
 
     //how many marbles are participating
-    const uint8_t getmarbleNumber() const
+    uint8_t getmarbleNumber() const
     {
-        return marbleMaxNumber; 
+        return marbleMaxNumber;
     }
 
     //current running marble
-    const uint8_t getCurrentMarble() const
+    uint8_t getCurrentMarble() const
     {
         return marbleTimes[currentMarble].marbleNumber;
     }
@@ -61,7 +61,7 @@ public:
     }
 
     // do we have a new best lap time
-    const bool getNewHighScore() 
+    bool getNewHighScore()
     {
         if(newBestLap == true)
         {
@@ -96,7 +96,7 @@ public:
             element->marbleBestTime = -1;
         }
     }
-    
+
     const estd::array<MarbelData,9>& getRanking()
     {
         return marbleRanking;
