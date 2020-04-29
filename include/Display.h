@@ -141,7 +141,7 @@ public:
         uint32_t seconds = timeInMillis / 1000;
         uint32_t milliseconds = timeInMillis - (seconds * 1000);
         String s = "";
-        if(seconds >= 10)
+        if(seconds < 10)
         {
             s = "0";
         }
