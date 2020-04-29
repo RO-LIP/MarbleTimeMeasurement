@@ -63,7 +63,7 @@ public:
         lcd.print("H: ");
         lcd.setCursor(3,1);
         lcd.print("Run marble ");
-        lcd.print(1);
+        lcd.print(formatMarbleNumber(1));
         lcd.setCursor(0,2);
         lcd.print("Current: ");
         lcd.setCursor(0,3);
@@ -75,7 +75,7 @@ public:
         lcd.setCursor(14,1);
         lcd.print("    ");
         lcd.setCursor(14,1);
-        lcd.print(marbleNumber);
+        lcd.print(formatMarbleNumber(marbleNumber));
         lcd.setCursor(0,2);
         lcd.print("Current:          ");
         lcd.setCursor(0,3);
@@ -96,17 +96,17 @@ public:
 
     void newHighScore(const uint32_t timeInMillis,const uint8_t marbleNumber)
     {
-        lcd.setCursor(6,0);
+        lcd.setCursor(4,0);
         lcd.print("          ");
-        lcd.setCursor(6,0);
+        lcd.setCursor(4,0);
         lcd.print("No ");
-        lcd.print(marbleNumber);
+        lcd.print(formatMarbleNumber(marbleNumber));
         lcd.print(" T ");
         lcd.print(MilliToText(timeInMillis));
 
     }
 
-    void showHighScore(const estd::array<MarbelData,9>& ranking,const uint8_t position)
+    void showHighScore(const estd::array<MarbelData,20>& ranking,const uint8_t position) 
     {
         lcd.clear();
         lcd.setCursor(1,0);
@@ -117,13 +117,23 @@ public:
             if(ranking[(position+i)-1].marbleBestTime == 0xffffffff)
                 continue;
             lcd.setCursor(0,i+1);
-            lcd.print(position + i);
-            lcd.print(". Marb. ");
-            lcd.print(ranking[(position+i)-1].marbleNumber);
+            lcd.print(formatMarbleNumber(position + i));
+            lcd.print(". Mbl.");
+            lcd.print(formatMarbleNumber(ranking[(position+i)-1].marbleNumber));
             lcd.print(" T: ");
             lcd.print(MilliToText(ranking[(position+i)-1].marbleBestTime));
         }
 
+    }
+
+    String formatMarbleNumber(const uint32_t number) const
+    {
+        if(number < 10)
+        {
+            return String(" ") + String(number);
+        }
+
+        return String(number);
     }
 
     String MilliToText(const uint32_t timeInMillis)

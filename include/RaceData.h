@@ -9,8 +9,8 @@ class RaceData
 {
     uint8_t marbleMaxNumber = 0;        //how many marbles are participating
     uint8_t currentMarble = 0;          //current running marble
-    estd::array<MarbelData,9> marbleTimes = estd::array<MarbelData,9>(); //the race data
-    estd::array<MarbelData,9> marbleRanking = estd::array<MarbelData,9>(); //the ranking data
+    estd::array<MarbelData,20> marbleTimes = estd::array<MarbelData,20>(); //the race data
+    estd::array<MarbelData,20> marbleRanking = estd::array<MarbelData,20>(); //the ranking data
     MarbelData bestLapMarble;       // marble with the best lap time
     bool newBestLap = false;        // do we have a new best lap time
 
@@ -97,7 +97,7 @@ public:
         }
     }
 
-    const estd::array<MarbelData,9>& getRanking()
+    const estd::array<MarbelData,20>& getRanking()
     {
         return marbleRanking;
     }
